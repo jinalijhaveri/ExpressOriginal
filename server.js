@@ -17,8 +17,8 @@ var index = require('./routes/index');
 var profile = require('./routes/profile');
 var user = require('./routes/users');
 var jobapp = require('./routes/jobapplication');
-var companyprofile = require('./routes/companyprofile');
-var job = require('./routes/jobs');
+//var companyprofile = require('./routes/companyprofile');
+//var job = require('./routes/jobs');
 
 var bodyParser = require('body-parser');
 var fs = require("fs");
