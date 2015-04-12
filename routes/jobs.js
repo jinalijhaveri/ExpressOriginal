@@ -3,8 +3,8 @@
  */
 
 var job = require('../model/jobQueries');
-var jquery = require('../public/js/jquery-1.11.2.min.js');
-var http = require('http');
+//var jquery = require('../public/js/jquery-1.11.2.min.js');
+//var http = require('http');
 
 exports.getJobsByCompany = function(req, res) {
 
