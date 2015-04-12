@@ -17,6 +17,7 @@ var index = require('./routes/index');
 var profile = require('./routes/profile');
 var user = require('./routes/users');
 var jobapp = require('./routes/jobapplication');
+var companyprofile = require('./routes/companyprofile');
 //var job = require('./routes/jobs');
 
 var bodyParser = require('body-parser');
@@ -87,7 +88,22 @@ app.get('/searchJobs/:searchTerm',job.searchJobs);
 app.get('/company/:companyId/jobs',job.getJobsByCompany);
 app.post('/company/:companyId/jobs/',job.insertJobDetails);*/
 
+app.get('/searchpage', companyprofile.getSearchView);
+app.get('/companyregistrationpage', companyprofile.getCompanyRegisterView);
+app.get('/companyhomepage', companyprofile.getCompanyView);
+app.get('/companyprofilepagename/:companyName', companyprofile.getCompanyProfileViewName);
+app.get('/company/logout', companyprofile.logout);
 
+app.post('/company',companyprofile.insertCompanyProfile);
+app.get('/company/:companyId',companyprofile.getCompanyProfile);
+app.post('/company/:companyId/name',companyprofile.updateCompanyName);
+app.post('/company/:companyId/overview',companyprofile.updateCompanyOverview);
+app.post('/company/:companyId/url',companyprofile.updateCompanyURL);
+app.post('/company/:companyId/logo',companyprofile.changeCompanyLogo);
+app.post('/company/:companyId/followers',companyprofile.addCompanyFollower);
+app.post('/company/:companyId/status',companyprofile.updateCompanyStatus);
+app.post('/company/autocompletelist',companyprofile.autoCompleteCompanySearch);
+app.post('/company/companylist',companyprofile.companySearch);
 
 
 http.createServer(app).listen(app.get('port'), function(){
