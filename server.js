@@ -14,7 +14,8 @@ var session = require('express-session');
 
 var index = require('./routes/index');
 var profile = require('./routes/profile');
-var user = require('./routes/users')
+var user = require('./routes/users');
+var jobapp = require('./routes/jobapplication');
 
 var bodyParser = require('body-parser');
 var fs = require("fs");
@@ -68,6 +69,12 @@ app.get('/portfolio',profile.getPortfolio); //portfolio page
 app.get('/profile/:userid',profile.getProfile); //profile data
 
 app.get('/userprofile',profile.getUserProfile); //profile page
+
+app.post('/application', jobapp.postJobApplication);
+app.get('/userapplication/:userId', jobapp.getJobApplication);
+app.post('/updatejobstatus/:jobId/:userId', jobapp.updateJobStatus);
+app.get('/getName/:userId', user.getName);
+
 
 
 
