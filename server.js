@@ -78,7 +78,7 @@ app.get('/userapplication/:userId', jobapp.getJobApplication);
 app.post('/updatejobstatus/:jobId/:userId', jobapp.updateJobStatus);
 app.get('/getName/:userId', user.getName);
 
-app.get('/insertJobDetailsPage',job.showInsertJobDetailsView);
+/*app.get('/insertJobDetailsPage',job.showInsertJobDetailsView);
 app.get('/showJobDetailsPage/:jobId',job.showJobDetailsView);
 app.get('/showJobs',job.showJobsView);
 
@@ -104,7 +104,7 @@ app.post('/company/:companyId/followers',companyprofile.addCompanyFollower);
 app.post('/company/:companyId/status',companyprofile.updateCompanyStatus);
 app.post('/company/autocompletelist',companyprofile.autoCompleteCompanySearch);
 app.post('/company/companylist',companyprofile.companySearch);
-
+*/
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
