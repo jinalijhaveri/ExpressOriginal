@@ -17,7 +17,7 @@ var index = require('./routes/index');
 var profile = require('./routes/profile');
 var user = require('./routes/users');
 var jobapp = require('./routes/jobapplication');
-//var job = require('./routes/jobs');
+var job = require('./routes/jobs');
 
 var bodyParser = require('body-parser');
 var fs = require("fs");
@@ -77,7 +77,7 @@ app.get('/userapplication/:userId', jobapp.getJobApplication);
 app.post('/updatejobstatus/:jobId/:userId', jobapp.updateJobStatus);
 app.get('/getName/:userId', user.getName);
 
-/*app.get('/insertJobDetailsPage',job.showInsertJobDetailsView);
+app.get('/insertJobDetailsPage',job.showInsertJobDetailsView);
 app.get('/showJobDetailsPage/:jobId',job.showJobDetailsView);
 app.get('/showJobs',job.showJobsView);
 
@@ -86,7 +86,7 @@ app.get('/jobs/:jobId',job.getJobDetails);
 app.get('/searchJobs/:searchTerm',job.searchJobs);
 app.get('/company/:companyId/jobs',job.getJobsByCompany);
 app.post('/company/:companyId/jobs/',job.insertJobDetails);
-*/
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
