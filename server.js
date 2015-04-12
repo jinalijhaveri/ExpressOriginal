@@ -12,10 +12,12 @@ var express = require('express')
 
 var session = require('express-session');
 
+
 var index = require('./routes/index');
 var profile = require('./routes/profile');
 var user = require('./routes/users');
 var jobapp = require('./routes/jobapplication');
+var job = require('./routes/jobs');
 
 var bodyParser = require('body-parser');
 var fs = require("fs");
@@ -53,7 +55,7 @@ app.post('/signIn',user.signIn);
 app.get('/getUserFromSession',user.getUserFromSession);
 app.post('/checkForExistingUser',user.IsUserPresent);
 app.get('/searchuser/:str', user.searchUsers);
-
+app.get('/searchPage', index.search);
 
 app.post('/bio/:userid',profile.insertBio);
 app.post('/certification/:userid',profile.insertCertification);
@@ -75,7 +77,15 @@ app.get('/userapplication/:userId', jobapp.getJobApplication);
 app.post('/updatejobstatus/:jobId/:userId', jobapp.updateJobStatus);
 app.get('/getName/:userId', user.getName);
 
+app.get('/insertJobDetailsPage',job.showInsertJobDetailsView);
+app.get('/showJobDetailsPage/:jobId',job.showJobDetailsView);
+app.get('/showJobs',job.showJobsView);
 
+app.get('/jobs',job.getJobs);
+app.get('/jobs/:jobId',job.getJobDetails);
+app.get('/searchJobs/:searchTerm',job.searchJobs);
+app.get('/company/:companyId/jobs',job.getJobsByCompany);
+app.post('/company/:companyId/jobs/',job.insertJobDetails);
 
 
 http.createServer(app).listen(app.get('port'), function(){
